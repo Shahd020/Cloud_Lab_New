@@ -1,6 +1,9 @@
 // Lab 5: the REST API is now the source of truth (no in-memory issues array).
-// API_BASE_URL comes from js/config.js (loaded first).
-
+const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+const API_BASE_URL = isLocal
+  ? 'http://localhost:3000/api/issues'
+  : 'https://cloudlabnew-backend.vercel.app/api/issues';
+  
 const issueForm = document.querySelector('#issue-form');
 const titleInput = document.querySelector('#title');
 const descriptionInput = document.querySelector('#description');
